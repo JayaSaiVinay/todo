@@ -7,8 +7,13 @@ import { Main } from "./Main";
 export default function App() {
   const [tasks, setTasks] = useState(function () {
     const storedData = localStorage.getItem("task");
-    return JSON.parse(storedData);
+    if (storedData === "null") {
+      return [];
+    } else {
+      return JSON.parse(storedData);
+    }
   });
+  // const [tasks, setTasks] = useState([]);
   useEffect(
     function () {
       localStorage.setItem("task", JSON.stringify(tasks));

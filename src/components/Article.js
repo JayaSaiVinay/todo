@@ -1,6 +1,9 @@
 export function Article({ tasks }) {
-  const completedTasks = tasks.filter((task) => task.isCompleted).length;
-  const totalTasks = tasks.length;
+  // Check if 'tasks' is null or undefined, and if so, return an empty array
+  const taskList = tasks || [];
+
+  const completedTasks = taskList.filter((task) => task.isCompleted).length;
+  const totalTasks = taskList.length;
   const percent = Math.round((completedTasks / totalTasks) * 100);
 
   return (

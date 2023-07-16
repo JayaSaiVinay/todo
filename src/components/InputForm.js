@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function InputForm({ tasks, setTasks }) {
   const [taskName, setTaskName] = useState("");
@@ -6,7 +6,7 @@ export function InputForm({ tasks, setTasks }) {
     e.preventDefault();
     if (taskName === "") return;
     const task = { taskName, isCompleted: false, id: Date.now() };
-    setTasks((tasks) => [...tasks, task]);
+    setTasks((tasks) => [...tasks, task]); // Use a different variable name here
     setTaskName("");
   }
   
