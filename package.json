@@ -1,6 +1,6 @@
 {
-  "homepage": "https://jayasaivinay.github.io/todo/",
   "name": "todo",
+  "homepage": "https://jayasaivinay.github.io/todo/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
