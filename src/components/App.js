@@ -7,7 +7,7 @@ import { Main } from "./Main";
 export default function App() {
   const [tasks, setTasks] = useState(function () {
     const storedData = localStorage.getItem("task");
-    if (storedData === "null") {
+    if (storedData === null) {
       return [];
     } else {
       return JSON.parse(storedData);
