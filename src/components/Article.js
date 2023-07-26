@@ -1,4 +1,7 @@
-export function Article({ tasks }) {
+import { useTasks } from "../contexts/TaskContext";
+
+export function Article() {
+  const {tasks} = useTasks();
   // Check if 'tasks' is null or undefined, and if so, return an empty array
   const taskList = tasks || [];
 

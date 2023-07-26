@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTasks } from "../contexts/TaskContext";
 
-export function Options({ handleClearList, setTasks, tasks }) {
+export function Options() {
+  const { handleClearList, setTasks, tasks } = useTasks();
   const [sortBy, setSortBy] = useState("byorder");
 
   const handleSortByChange = (e) => {
@@ -9,9 +11,15 @@ export function Options({ handleClearList, setTasks, tasks }) {
     if (selectedValue === "byorder") {
       setTasks(tasks);
     } else if (selectedValue === "bya2z") {
-      setTasks(tasks.slice().sort((a, b) => a.taskName.localeCompare(b.taskName)));
+      setTasks(
+        tasks.slice().sort((a, b) => a.taskName.localeCompare(b.taskName))
+      );
     } else if (selectedValue === "bystatus") {
-      setTasks(tasks.slice().sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted)));
+      setTasks(
+        tasks
+          .slice()
+          .sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted))
+      );
     }
 
     setSortBy(selectedValue);

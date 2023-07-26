@@ -1,4 +1,4 @@
-export function Task({ taskName, tasks, setTasks, id, isCompleted }) {
+export function Task({ taskName, setTasks, id, isCompleted }) {
   function handleToggle(id) {
     setTasks((tasks) =>
       tasks.map((task) =>

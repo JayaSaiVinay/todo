@@ -1,7 +1,8 @@
+import { useTasks } from "../contexts/TaskContext";
 import { Task } from "./Task";
 
-export function TodoList({ tasks, setTasks }) {
-  // Check if 'tasks' is null or undefined, and if so, return an empty array
+export function TodoList() {
+  const { tasks, setTasks } = useTasks();
   const taskList = tasks || [];
 
   return (
@@ -10,7 +11,6 @@ export function TodoList({ tasks, setTasks }) {
         <li className="task" key={task.id}>
           <Task
             id={task.id}
-            tasks={taskList} // Pass the correct task list to Task component
             setTasks={setTasks}
             taskName={task.taskName}
             isCompleted={task.isCompleted}

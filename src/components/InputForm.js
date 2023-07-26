@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useTasks } from "../contexts/TaskContext";
 
-export function InputForm({ tasks, setTasks }) {
+export function InputForm() {
+  const { setTasks } = useTasks();
   const [taskName, setTaskName] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     if (taskName === "") return;
     const task = { taskName, isCompleted: false, id: Date.now() };
-    setTasks((tasks) => [...tasks, task]); // Use a different variable name here
+    setTasks((tasks) => [...tasks, task]);
     setTaskName("");
   }
-  
+
   return (
     <form className="input-form" onSubmit={(e) => handleSubmit(e)}>
       <input
